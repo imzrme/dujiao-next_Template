@@ -42,7 +42,7 @@
                   <span class="h-2 w-2 rounded-full bg-emerald-300"></span>
                   {{ heroBadge }}
                 </span>
-                <h1 class="max-w-4xl text-xl font-semibold tracking-[-0.02em] text-white sm:text-2xl md:text-3xl">
+                <h1 class="max-w-4xl text-xl font-semibold text-white sm:text-2xl md:text-3xl">
                   {{ heroTitle }}
                 </h1>
                 <p class="max-w-3xl text-xs leading-relaxed text-gray-100 sm:text-sm">
@@ -236,7 +236,7 @@
                 <span class="h-2 w-2 rounded-full bg-emerald-300"></span>
                 {{ heroBadge }}
               </span>
-              <h1 class="max-w-4xl text-2xl font-semibold tracking-[-0.02em] text-white sm:text-3xl md:text-[2.85rem]">
+              <h1 class="max-w-4xl text-2xl font-semibold text-white sm:text-3xl md:text-[2.85rem]">
                 {{ heroTitle }}
               </h1>
               <p class="max-w-3xl text-xs leading-relaxed text-gray-100 sm:text-sm md:text-base">

@@ -53,56 +53,60 @@
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --ui-font-body: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, Georgia, ui-serif, serif;
+  --ui-font-ui: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ui-font-mono: 'SFMono-Regular', 'SF Mono', Consolas, 'Liberation Mono', monospace;
+
+  font-family: var(--ui-font-body);
+  line-height: 1.58;
   font-weight: 400;
 
-  --ui-bg-page: #f5f5f7;
-  --ui-bg-elevated: #ffffff;
-  --ui-bg-soft: #f2f2f4;
-  --ui-bg-muted: #ececf0;
-  --ui-bg-overlay: rgba(255, 255, 255, 0.8);
-  --ui-bg-overlay-strong: rgba(255, 255, 255, 0.92);
-  --ui-text-primary: #1d1d1f;
-  --ui-text-secondary: #424245;
-  --ui-text-muted: #6e6e73;
+  --ui-bg-page: #f8f8f5;
+  --ui-bg-elevated: #fffefa;
+  --ui-bg-soft: #f1f0eb;
+  --ui-bg-muted: #e7e5de;
+  --ui-bg-overlay: rgba(255, 254, 250, 0.92);
+  --ui-bg-overlay-strong: rgba(255, 254, 250, 0.98);
+  --ui-text-primary: #1b1a17;
+  --ui-text-secondary: #45413b;
+  --ui-text-muted: #746f65;
   --ui-text-on-accent: #ffffff;
-  --ui-border: rgba(0, 0, 0, 0.12);
-  --ui-border-strong: rgba(0, 0, 0, 0.2);
-  --ui-accent: #0071e3;
-  --ui-accent-hover: #0067d2;
-  --ui-accent-soft: rgba(0, 113, 227, 0.14);
-  --ui-success: #2f8f6f;
-  --ui-success-soft: rgba(47, 143, 111, 0.14);
-  --ui-warning: #b06b00;
-  --ui-warning-soft: rgba(176, 107, 0, 0.15);
-  --ui-danger: #c9342f;
-  --ui-danger-soft: rgba(201, 52, 47, 0.15);
-  --ui-info: #0a84ff;
-  --ui-info-soft: rgba(10, 132, 255, 0.14);
-  --ui-focus-ring: rgba(0, 113, 227, 0.22);
-  --ui-radius-sm: 0.5rem;
-  --ui-radius-md: 0.75rem;
-  --ui-radius-lg: 1rem;
-  --ui-radius-xl: 1.5rem;
-  --ui-shadow-1: 0 10px 24px -18px rgba(0, 0, 0, 0.26);
-  --ui-shadow-2: 0 18px 38px -24px rgba(0, 0, 0, 0.3);
-  --ui-shadow-3: 0 30px 64px -34px rgba(0, 0, 0, 0.36);
-  --ui-shadow-soft: 0 12px 30px -24px rgba(0, 0, 0, 0.28);
-  --ui-shadow-card: 0 24px 52px -32px rgba(0, 0, 0, 0.35);
-  --ui-leading-display: 1.1;
-  --ui-leading-title: 1.2;
-  --ui-leading-body: 1.62;
+  --ui-border: rgba(31, 29, 25, 0.18);
+  --ui-border-strong: rgba(31, 29, 25, 0.72);
+  --ui-accent: #1b1a17;
+  --ui-accent-hover: #b83f32;
+  --ui-accent-soft: rgba(27, 26, 23, 0.08);
+  --ui-success: #2f7659;
+  --ui-success-soft: rgba(47, 118, 89, 0.12);
+  --ui-warning: #9a6500;
+  --ui-warning-soft: rgba(154, 101, 0, 0.12);
+  --ui-danger: #b83f32;
+  --ui-danger-soft: rgba(184, 63, 50, 0.12);
+  --ui-info: #2f5f8f;
+  --ui-info-soft: rgba(47, 95, 143, 0.12);
+  --ui-focus-ring: rgba(184, 63, 50, 0.2);
+  --ui-radius-sm: 0.25rem;
+  --ui-radius-md: 0.375rem;
+  --ui-radius-lg: 0.5rem;
+  --ui-radius-xl: 0.75rem;
+  --ui-shadow-1: 2px 2px 0 rgba(31, 29, 25, 0.12);
+  --ui-shadow-2: 4px 4px 0 rgba(31, 29, 25, 0.16);
+  --ui-shadow-3: 6px 6px 0 rgba(31, 29, 25, 0.18);
+  --ui-shadow-soft: 2px 2px 0 rgba(31, 29, 25, 0.1);
+  --ui-shadow-card: 5px 5px 0 rgba(31, 29, 25, 0.18);
+  --ui-leading-display: 1.12;
+  --ui-leading-title: 1.24;
+  --ui-leading-body: 1.72;
 
   /* Warm accent colors */
-  --ui-accent-warm: #d97706;
-  --ui-accent-warm-hover: #b45309;
-  --ui-accent-warm-soft: rgba(217, 119, 6, 0.14);
+  --ui-accent-warm: #9a6500;
+  --ui-accent-warm-hover: #7c4f00;
+  --ui-accent-warm-soft: rgba(154, 101, 0, 0.12);
 
   /* Price tokens */
-  --ui-price-primary: #1d1d1f;
-  --ui-price-promotion: #dc2626;
-  --ui-price-original: #6e6e73;
+  --ui-price-primary: #1b1a17;
+  --ui-price-promotion: #b83f32;
+  --ui-price-original: #746f65;
 
   /* Animation durations */
   --ui-duration-fast: 150ms;
@@ -138,51 +142,52 @@
 }
 
 .dark {
-  --ui-bg-page: #000000;
-  --ui-bg-elevated: #1c1c1e;
-  --ui-bg-soft: #2c2c2e;
-  --ui-bg-muted: #242426;
-  --ui-bg-overlay: rgba(28, 28, 30, 0.78);
-  --ui-bg-overlay-strong: rgba(28, 28, 30, 0.9);
-  --ui-text-primary: #f5f5f7;
-  --ui-text-secondary: #d2d2d7;
-  --ui-text-muted: #8e8e93;
-  --ui-text-on-accent: #f5f5f7;
-  --ui-border: rgba(255, 255, 255, 0.14);
-  --ui-border-strong: rgba(255, 255, 255, 0.24);
-  --ui-accent: #0a84ff;
-  --ui-accent-hover: #409cff;
-  --ui-accent-soft: rgba(10, 132, 255, 0.24);
-  --ui-success: #30d158;
-  --ui-success-soft: rgba(48, 209, 88, 0.22);
-  --ui-warning: #ffd60a;
-  --ui-warning-soft: rgba(255, 214, 10, 0.24);
-  --ui-danger: #ff453a;
-  --ui-danger-soft: rgba(255, 69, 58, 0.24);
-  --ui-info: #64d2ff;
-  --ui-info-soft: rgba(100, 210, 255, 0.24);
-  --ui-focus-ring: rgba(10, 132, 255, 0.32);
-  --ui-shadow-1: 0 14px 30px -22px rgba(0, 0, 0, 0.72);
-  --ui-shadow-2: 0 24px 48px -28px rgba(0, 0, 0, 0.78);
-  --ui-shadow-3: 0 36px 76px -34px rgba(0, 0, 0, 0.84);
-  --ui-shadow-soft: 0 22px 46px -30px rgba(0, 0, 0, 0.78);
-  --ui-shadow-card: 0 30px 70px -34px rgba(0, 0, 0, 0.88);
+  --ui-bg-page: #11100e;
+  --ui-bg-elevated: #191816;
+  --ui-bg-soft: #23211d;
+  --ui-bg-muted: #2d2a25;
+  --ui-bg-overlay: rgba(25, 24, 22, 0.92);
+  --ui-bg-overlay-strong: rgba(25, 24, 22, 0.98);
+  --ui-text-primary: #f3efe6;
+  --ui-text-secondary: #d7d0c2;
+  --ui-text-muted: #9d9485;
+  --ui-text-on-accent: #171512;
+  --ui-border: rgba(243, 239, 230, 0.14);
+  --ui-border-strong: rgba(243, 239, 230, 0.44);
+  --ui-accent: #f3efe6;
+  --ui-accent-hover: #ff735f;
+  --ui-accent-soft: rgba(243, 239, 230, 0.1);
+  --ui-success: #68b58f;
+  --ui-success-soft: rgba(104, 181, 143, 0.14);
+  --ui-warning: #d9a84e;
+  --ui-warning-soft: rgba(217, 168, 78, 0.14);
+  --ui-danger: #ff735f;
+  --ui-danger-soft: rgba(255, 115, 95, 0.14);
+  --ui-info: #7aa7d7;
+  --ui-info-soft: rgba(122, 167, 215, 0.14);
+  --ui-focus-ring: rgba(255, 115, 95, 0.28);
+  --ui-shadow-1: 2px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-shadow-2: 4px 4px 0 rgba(0, 0, 0, 0.46);
+  --ui-shadow-3: 6px 6px 0 rgba(0, 0, 0, 0.52);
+  --ui-shadow-soft: 2px 2px 0 rgba(0, 0, 0, 0.36);
+  --ui-shadow-card: 5px 5px 0 rgba(0, 0, 0, 0.5);
 
   /* Warm accent colors (dark) */
-  --ui-accent-warm: #fbbf24;
-  --ui-accent-warm-hover: #f59e0b;
-  --ui-accent-warm-soft: rgba(251, 191, 36, 0.22);
+  --ui-accent-warm: #d9a84e;
+  --ui-accent-warm-hover: #edbd62;
+  --ui-accent-warm-soft: rgba(217, 168, 78, 0.14);
 
   /* Price tokens (dark) */
-  --ui-price-primary: #f5f5f7;
-  --ui-price-promotion: #f87171;
-  --ui-price-original: #8e8e93;
+  --ui-price-primary: #f3efe6;
+  --ui-price-promotion: #ff735f;
+  --ui-price-original: #9d9485;
 }
 
 html,
 body {
   background-color: var(--ui-bg-page);
   color: var(--ui-text-primary);
+  background-image: none;
 }
 
 html[data-telegram-mini-app="true"],
@@ -192,24 +197,34 @@ html[data-telegram-mini-app="true"] body {
 
 @layer base {
   h1 {
+    font-family: var(--ui-font-body);
     line-height: var(--ui-leading-display);
-    letter-spacing: -0.024em;
+    letter-spacing: 0;
   }
 
   h2 {
+    font-family: var(--ui-font-body);
     line-height: var(--ui-leading-title);
-    letter-spacing: -0.018em;
+    letter-spacing: 0;
   }
 
   h3,
   h4 {
+    font-family: var(--ui-font-body);
     line-height: 1.26;
-    letter-spacing: -0.012em;
+    letter-spacing: 0;
   }
 
   p,
   li {
     line-height: var(--ui-leading-body);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--ui-font-ui);
   }
 }
 
@@ -242,17 +257,23 @@ html[data-telegram-mini-app="true"] body {
 
   .theme-panel {
     background-color: var(--ui-bg-elevated);
+    border-width: 1px;
+    border-style: solid;
     border-color: var(--ui-border);
     box-shadow: var(--ui-shadow-1);
   }
 
   .theme-panel-soft {
-    background-color: var(--ui-bg-overlay);
+    background-color: var(--ui-bg-elevated);
+    border-width: 1px;
+    border-style: solid;
     border-color: var(--ui-border);
   }
 
   .theme-panel-strong {
     background-color: var(--ui-bg-overlay-strong);
+    border-width: 1px;
+    border-style: solid;
     border-color: var(--ui-border-strong);
     box-shadow: var(--ui-shadow-2);
   }
@@ -303,21 +324,23 @@ html[data-telegram-mini-app="true"] body {
   .theme-btn-primary {
     background-color: var(--ui-accent);
     color: var(--ui-text-on-accent);
-    border-color: var(--ui-accent);
-    box-shadow: 0 10px 24px -18px color-mix(in oklab, var(--ui-accent) 55%, transparent);
-    font-weight: 600;
+    border: 1px solid var(--ui-accent);
+    box-shadow: 3px 3px 0 color-mix(in oklab, var(--ui-accent) 28%, transparent);
+    font-family: var(--ui-font-ui);
+    font-weight: 700;
   }
 
   .theme-btn-primary:hover {
     background-color: var(--ui-accent-hover);
     border-color: var(--ui-accent-hover);
-    box-shadow: 0 14px 28px -20px color-mix(in oklab, var(--ui-accent-hover) 58%, transparent);
+    color: #fffefa;
+    box-shadow: 3px 3px 0 color-mix(in oklab, var(--ui-accent-hover) 30%, transparent);
   }
 
   .theme-btn-neutral {
     background-color: var(--ui-bg-soft);
     color: var(--ui-text-secondary);
-    border-color: var(--ui-border);
+    border: 1px solid var(--ui-border);
   }
 
   .theme-btn-neutral:hover {
@@ -327,22 +350,25 @@ html[data-telegram-mini-app="true"] body {
   }
 
   .theme-btn-secondary {
-    background-color: var(--ui-bg-soft);
+    background-color: var(--ui-bg-elevated);
     color: var(--ui-text-secondary);
-    border-color: var(--ui-border);
-    font-weight: 500;
+    border: 1px solid var(--ui-border);
+    font-family: var(--ui-font-ui);
+    font-weight: 650;
   }
 
   .theme-btn-secondary:hover {
-    color: var(--ui-accent-hover);
-    border-color: color-mix(in oklab, var(--ui-accent) 45%, transparent);
+    color: var(--ui-text-primary);
+    border-color: var(--ui-border-strong);
+    box-shadow: 2px 2px 0 color-mix(in oklab, var(--ui-accent) 18%, transparent);
   }
 
   .theme-btn-ghost {
     background-color: transparent;
     color: var(--ui-text-secondary);
-    border-color: var(--ui-border);
-    font-weight: 500;
+    border: 1px solid var(--ui-border);
+    font-family: var(--ui-font-ui);
+    font-weight: 650;
   }
 
   .theme-btn-ghost:hover {
@@ -359,11 +385,15 @@ html[data-telegram-mini-app="true"] body {
 
   .theme-surface-soft {
     background-color: var(--ui-bg-soft);
+    border-width: 1px;
+    border-style: solid;
     border-color: var(--ui-border);
   }
 
   .theme-surface-muted {
     background-color: var(--ui-bg-muted);
+    border-width: 1px;
+    border-style: solid;
     border-color: var(--ui-border);
   }
 
@@ -394,8 +424,8 @@ html[data-telegram-mini-app="true"] body {
     @apply inline-flex items-center rounded-xl border px-3.5 sm:px-4;
     min-height: 2.5rem;
     max-width: min(56vw, 20rem);
-    background-color: color-mix(in oklab, var(--ui-bg-elevated) 90%, var(--ui-accent-soft) 10%);
-    border-color: color-mix(in oklab, var(--ui-accent) 22%, var(--ui-border));
+    background-color: var(--ui-bg-elevated);
+    border-color: var(--ui-border-strong);
     box-shadow: var(--ui-shadow-1);
     color: var(--ui-text-primary);
     transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
@@ -403,8 +433,8 @@ html[data-telegram-mini-app="true"] body {
 
   .theme-wordmark:hover {
     color: var(--ui-accent-hover);
-    border-color: color-mix(in oklab, var(--ui-accent) 42%, transparent);
-    background-color: color-mix(in oklab, var(--ui-accent-soft) 72%, var(--ui-bg-elevated));
+    border-color: var(--ui-accent-hover);
+    background-color: var(--ui-bg-elevated);
   }
 
   .theme-wordmark:focus-visible {
@@ -416,7 +446,7 @@ html[data-telegram-mini-app="true"] body {
     @apply block;
     font-size: 1rem;
     font-weight: 700;
-    letter-spacing: -0.018em;
+    letter-spacing: 0;
     line-height: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -425,14 +455,15 @@ html[data-telegram-mini-app="true"] body {
 
   .theme-nav-link {
     @apply inline-flex items-center rounded-lg border border-transparent px-3 py-2 text-xs font-medium;
+    font-family: var(--ui-font-ui);
     color: var(--ui-text-muted);
     transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
   }
 
   .theme-nav-link:hover {
     color: var(--ui-text-primary);
-    border-color: var(--ui-border);
-    background-color: var(--ui-bg-soft);
+    border-color: var(--ui-border-strong);
+    background-color: var(--ui-bg-elevated);
   }
 
   .theme-nav-link:focus-visible {
@@ -441,8 +472,8 @@ html[data-telegram-mini-app="true"] body {
   }
 
   .theme-nav-link-active {
-    color: var(--ui-accent) !important;
-    border-color: color-mix(in oklab, var(--ui-accent) 36%, transparent) !important;
+    color: var(--ui-accent-hover) !important;
+    border-color: color-mix(in oklab, var(--ui-accent-hover) 45%, transparent) !important;
     background-color: var(--ui-accent-soft) !important;
   }
 
@@ -456,7 +487,7 @@ html[data-telegram-mini-app="true"] body {
 
   .theme-section-heading {
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     line-height: var(--ui-leading-display);
   }
 
@@ -483,7 +514,7 @@ html[data-telegram-mini-app="true"] body {
   }
 
   .theme-auth-card {
-    @apply rounded-3xl border p-7 backdrop-blur-sm sm:p-9;
+    @apply rounded-3xl border p-7 sm:p-9;
     background-color: var(--ui-bg-overlay-strong);
     border-color: var(--ui-border-strong);
     box-shadow: var(--ui-shadow-2);
@@ -536,18 +567,18 @@ html[data-telegram-mini-app="true"] body {
   }
 
   .theme-card-interactive:hover {
-    border-color: color-mix(in oklab, var(--ui-accent) 34%, transparent);
-    transform: translateY(-0.25rem);
-    box-shadow: 0 20px 36px -28px color-mix(in oklab, var(--ui-accent) 28%, rgba(0, 0, 0, 0.24));
+    border-color: var(--ui-border-strong);
+    transform: translate(-0.125rem, -0.125rem);
+    box-shadow: var(--ui-shadow-card);
   }
 
   .theme-selected-surface {
-    border-color: color-mix(in oklab, var(--ui-accent) 44%, transparent);
+    border-color: var(--ui-border-strong);
     background-color: var(--ui-accent-soft);
   }
 
   .theme-selected-surface:hover {
-    border-color: color-mix(in oklab, var(--ui-accent) 54%, transparent);
+    border-color: var(--ui-accent-hover);
   }
 
   .theme-interactive-surface {
@@ -598,14 +629,19 @@ html[data-telegram-mini-app="true"] body {
   }
 
   .theme-badge {
-    @apply inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold;
+    @apply inline-flex items-center border px-2.5 py-1 text-[11px] font-semibold;
+    border-radius: var(--ui-radius-sm);
+    font-family: var(--ui-font-ui);
     line-height: 1;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
   }
 
   .theme-badge-meta {
-    @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-wider;
+    @apply inline-flex items-center border px-3 py-1 text-xs font-bold uppercase;
+    border-radius: var(--ui-radius-sm);
+    font-family: var(--ui-font-ui);
     line-height: 1;
+    letter-spacing: 0;
   }
 
   .theme-badge-xs {
@@ -657,9 +693,8 @@ html[data-telegram-mini-app="true"] body {
 
   .theme-badge-inverse {
     color: rgba(255, 255, 255, 0.96);
-    border-color: rgba(255, 255, 255, 0.24);
-    background-color: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
+    border-color: rgba(255, 255, 255, 0.42);
+    background-color: rgba(0, 0, 0, 0.68);
   }
 
   .theme-accent-stick {
@@ -690,8 +725,8 @@ html[data-telegram-mini-app="true"] body {
   .theme-prose blockquote {
     border-left-color: color-mix(in oklab, var(--ui-accent) 38%, transparent);
     background-color: var(--ui-bg-soft);
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
+    border-top-right-radius: var(--ui-radius-md);
+    border-bottom-right-radius: var(--ui-radius-md);
     padding: 0.9rem 1rem;
   }
 
@@ -703,6 +738,7 @@ html[data-telegram-mini-app="true"] body {
     background-color: var(--ui-bg-elevated);
     border-color: var(--ui-border);
     color: var(--ui-text-primary);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ui-bg-page) 78%, transparent);
   }
 
   .form-input { @apply w-full px-4 py-2.5; }
@@ -719,8 +755,8 @@ html[data-telegram-mini-app="true"] body {
   .form-input-lg:focus,
   .form-input-compact:focus {
     outline: none;
-    border-color: var(--ui-accent);
-    box-shadow: 0 0 0 3px var(--ui-focus-ring);
+    border-color: var(--ui-border-strong);
+    box-shadow: 3px 3px 0 var(--ui-focus-ring);
   }
 
   /* Price typography */
@@ -728,20 +764,20 @@ html[data-telegram-mini-app="true"] body {
     font-size: 2.75rem;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     line-height: 1.1;
     color: var(--ui-price-primary);
-    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    font-family: var(--ui-font-mono);
   }
 
   .theme-price-sm {
     font-size: 1.125rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     line-height: 1.2;
     color: var(--ui-price-primary);
-    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    font-family: var(--ui-font-mono);
   }
 
   .theme-price-promotion {
@@ -758,7 +794,7 @@ html[data-telegram-mini-app="true"] body {
   .theme-section-divider {
     border: none;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--ui-border), transparent);
+    background: var(--ui-border);
     margin: var(--ui-section-gap) 0;
   }
 
@@ -786,7 +822,7 @@ html[data-telegram-mini-app="true"] body {
 
   /* Auth page background */
   .theme-auth-page {
-    background: radial-gradient(ellipse at 50% 0%, var(--ui-accent-soft) 0%, var(--ui-bg-page) 70%);
+    background: var(--ui-bg-page);
     min-height: var(--tg-viewport-stable-height);
   }
 
@@ -844,9 +880,25 @@ html[data-telegram-mini-app="true"] body {
     box-shadow: var(--ui-shadow-3) !important;
   }
 
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: none !important;
+  }
+
   .font-black {
     font-weight: 800 !important;
-    letter-spacing: -0.018em;
+    letter-spacing: 0 !important;
+  }
+
+  .tracking-\[-0\.02em\] {
+    letter-spacing: 0 !important;
+  }
+
+  .font-mono {
+    font-family: var(--ui-font-mono) !important;
   }
 
   .text-3xl {
