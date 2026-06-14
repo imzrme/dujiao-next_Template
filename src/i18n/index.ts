@@ -861,6 +861,11 @@ const messages = {
             copied: '已复制',
             copyFailed: '复制失败，请重试',
             qrCodeLabel: '二维码内容',
+            walletAddress: '钱包地址',
+            cryptoAmount: '链上应付数量',
+            cryptoChain: '链/网络',
+            cryptoToken: '支付币种',
+            copyWalletAddress: '复制钱包地址',
             qrTitle: '请使用扫码支付',
             qrTip: '打开支付应用扫码完成支付。',
             redirectTitle: '请使用跳转支付',
@@ -978,6 +983,7 @@ const messages = {
             amountOnlinePaid: '在线支付',
             amountRefunded: '已退款金额',
             amountMemberDiscount: '会员优惠',
+            amountWholesaleDiscount: '批发价优惠',
             refundRecordsTitle: '退款记录',
             refundRecordsEmpty: '暂无退款记录',
             refundRecordTime: '退款时间',
@@ -2005,6 +2011,11 @@ const messages = {
             copied: '已複製',
             copyFailed: '複製失敗，請重試',
             qrCodeLabel: '二維碼內容',
+            walletAddress: '錢包地址',
+            cryptoAmount: '鏈上應付數量',
+            cryptoChain: '鏈/網路',
+            cryptoToken: '支付幣種',
+            copyWalletAddress: '複製錢包地址',
             qrTitle: '請使用掃碼支付',
             qrTip: '打開支付應用掃碼完成支付。',
             redirectTitle: '請使用跳轉支付',
@@ -2122,6 +2133,7 @@ const messages = {
             amountOnlinePaid: '線上支付',
             amountRefunded: '已退款金額',
             amountMemberDiscount: '會員優惠',
+            amountWholesaleDiscount: '批發價優惠',
             refundRecordsTitle: '退款記錄',
             refundRecordsEmpty: '暫無退款記錄',
             refundRecordTime: '退款時間',
@@ -3108,6 +3120,11 @@ const messages = {
             copied: 'Copied',
             copyFailed: 'Copy failed, please try again',
             qrCodeLabel: 'QR content',
+            walletAddress: 'Wallet address',
+            cryptoAmount: 'On-chain amount due',
+            cryptoChain: 'Chain / network',
+            cryptoToken: 'Payment token',
+            copyWalletAddress: 'Copy wallet address',
             qrTitle: 'Scan to pay',
             qrTip: 'Open your payment app and scan to complete payment.',
             redirectTitle: 'Redirect to pay',
@@ -3225,6 +3242,7 @@ const messages = {
             amountOnlinePaid: 'Online paid',
             amountRefunded: 'Refunded amount',
             amountMemberDiscount: 'Member Discount',
+            amountWholesaleDiscount: 'Wholesale discount',
             refundRecordsTitle: 'Refund Records',
             refundRecordsEmpty: 'No refund records',
             refundRecordTime: 'Refund time',
@@ -3315,7 +3333,7 @@ const messages = {
 
 const supportedLocales = ['zh-CN', 'zh-TW', 'en-US']
 
-function detectLocale(): string {
+export function detectLocale(): string {
     const saved = localStorage.getItem('locale')
     if (saved && supportedLocales.includes(saved)) return saved
 
