@@ -48,7 +48,7 @@
             <RouterLink class="inline-flex items-center gap-2 rounded-full border-2 border-hairline-strong px-3.5 py-1.5 text-[13px] font-bold text-foreground transition-colors hover:border-[color:var(--ink)] max-[900px]:hidden" to="/me"><User class="h-[18px] w-[18px]" /> {{ t('navbar.personalCenter') }}</RouterLink>
             <button type="button" class="grid h-10 w-10 flex-none place-items-center rounded-full bg-secondary text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive max-[900px]:hidden" :aria-label="t('navbar.logout')" :title="t('navbar.logout')" @click="userAuthStore.logout()"><LogOut class="h-[18px] w-[18px]" /></button>
           </template>
-          <RouterLink v-else class="inline-flex items-center gap-2 rounded-full bg-[color:var(--ink)] px-3.5 py-1.5 text-[13px] font-bold text-[color:var(--bg)] transition-colors hover:opacity-90 max-[900px]:hidden" to="/auth/login">{{ t('navbar.login') }}</RouterLink>
+          <RouterLink v-else class="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-[13px] font-bold text-primary-foreground transition-colors hover:bg-primary/90 max-[900px]:hidden" to="/auth/login">{{ t('navbar.login') }}</RouterLink>
 
           <!-- 移动端：更多菜单 -->
           <div class="relative hidden max-[900px]:block" ref="moreEl">

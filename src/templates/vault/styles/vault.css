@@ -155,35 +155,40 @@
   --ring: rgba(255, 115, 95, 0.28);
 }
 
-/* ---------- Base（限定在作用域内） ---------- */
-.vault-scope h1,
-.vault-scope h2,
-.vault-scope h3,
-.vault-scope h4 {
-  font-family: var(--font-head);
-  font-weight: 700;
-  line-height: 1.12;
-  margin: 0;
-  letter-spacing: 0;
-  color: var(--ink);
+/* ---------- Base（限定在作用域内） ----------
+   放进 @layer base，确保低于 Tailwind 的 @layer utilities，
+   工具类（text-* / bg-* …）始终可覆盖这些元素 reset。
+   未分层规则会无视优先级压过分层工具类，故此处必须显式分层。 */
+@layer base {
+  .vault-scope h1,
+  .vault-scope h2,
+  .vault-scope h3,
+  .vault-scope h4 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    line-height: 1.12;
+    margin: 0;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+  .vault-scope p { margin: 0; }
+  .vault-scope a { color: inherit; text-decoration: none; }
+  .vault-scope img,
+  .vault-scope svg { display: block; max-width: 100%; }
+  .vault-scope button,
+  .vault-scope input,
+  .vault-scope select,
+  .vault-scope textarea {
+    font-family: var(--font-ui);
+  }
+  .vault-scope button { cursor: pointer; }
+  .vault-scope ul { margin: 0; }
+  .vault-scope :focus-visible {
+    outline: none;
+    box-shadow: 3px 3px 0 var(--ring);
+  }
+  .vault-scope ::selection { background: var(--gold-soft); color: var(--ink); }
 }
-.vault-scope p { margin: 0; }
-.vault-scope a { color: inherit; text-decoration: none; }
-.vault-scope img,
-.vault-scope svg { display: block; max-width: 100%; }
-.vault-scope button,
-.vault-scope input,
-.vault-scope select,
-.vault-scope textarea {
-  font-family: var(--font-ui);
-}
-.vault-scope button { cursor: pointer; }
-.vault-scope ul { margin: 0; }
-.vault-scope :focus-visible {
-  outline: none;
-  box-shadow: 3px 3px 0 var(--ring);
-}
-.vault-scope ::selection { background: var(--gold-soft); color: var(--ink); }
 
 /* ---------- 响应式 / 无障碍 ---------- */
 @media (max-width: 900px) {
