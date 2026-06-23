@@ -131,16 +131,6 @@ import { useCartStore } from '../../../stores/cart'
 import { useUserAuthStore } from '../../../stores/userAuth'
 import { useTheme } from '../../../utils/theme'
 import { getImageUrl } from '../../../utils/image'
-// 本地自托管字体（替代 Google Fonts CDN），仅 vault 模板加载
-import '@fontsource/rubik/latin-400.css'
-import '@fontsource/rubik/latin-500.css'
-import '@fontsource/rubik/latin-600.css'
-import '@fontsource/rubik/latin-700.css'
-import '@fontsource/rubik/latin-800.css'
-import '@fontsource/nunito-sans/latin-400.css'
-import '@fontsource/nunito-sans/latin-500.css'
-import '@fontsource/nunito-sans/latin-600.css'
-import '@fontsource/nunito-sans/latin-700.css'
 import '../styles/vault.css'
 
 const { t, locale } = useI18n()

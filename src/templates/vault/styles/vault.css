@@ -1,62 +1,62 @@
 /* =========================================================================
    D&J Studio — vault 模板设计令牌（"数字礼券店" v2）
-   方向: Vibrant & Block-based · 靛蓝 + 金 + 宝石青 · 圆体 Rubik
+   方向: Print Ledger · 暖纸底 + 墨色边框 + 红棕强调
    作用域: 全部选择器限定在 .vault-scope 下，不影响 classic 模板。
            暗色跟随全局 .dark（document.documentElement）。
 
    说明: 页面已全量改用 shadcn 组件 + Tailwind utility。本文件只保留
          「设计令牌层」——vault 调色板 + 把 shadcn 的 --ui-* 在 .vault-scope
          内覆盖成 vault 配色（utility/组件自动 vault 化）+ 基础元素样式。
-         旧的语义类(.btn/.pcard/.pill/.v-nav…)已删除。
-         字体已改为本地自托管（@fontsource），引入位置见 VaultLayout.vue，
-         不再依赖任何在线 CDN。
+         旧的语义类(.btn/.pcard/.pill/.v-nav…)已删除。字体跟随全站
+         纸质主题变量，vault 只保留局部 token 与 shadcn 映射。
    ========================================================================= */
 
 /* ---------- Tokens: 亮色（默认） ---------- */
 .vault-scope {
-  --font-head: "Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: var(--ui-font-body, 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, Georgia, ui-serif, serif);
+  --font-body: var(--ui-font-body, 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, Georgia, ui-serif, serif);
+  --font-ui: var(--ui-font-ui, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif);
 
-  --bg: #f6f6fb;
-  --bg-warm: #edecf6;
-  --surface: #ffffff;
-  --surface-2: #eef0f8;
-  --ink: #1c1b2e;
-  --ink-2: #565574;
-  --ink-3: #8584a0;
-  --border: #e6e5f1;
-  --border-strong: #d2d1e4;
+  --bg: #f8f8f5;
+  --bg-warm: #f1f0eb;
+  --surface: #fffefa;
+  --surface-2: #f1f0eb;
+  --ink: #1b1a17;
+  --ink-2: #45413b;
+  --ink-3: #746f65;
+  --border: rgba(31, 29, 25, 0.18);
+  --border-strong: rgba(31, 29, 25, 0.72);
 
-  --red: #4f46e5;
-  --red-strong: #4338ca;
-  --red-soft: #ecebfb;
-  --gold: #f59e0b;
-  --gold-strong: #b6770a;
-  --gold-soft: #fdf0d7;
-  --teal: #0ea5a4;
-  --teal-strong: #0c8584;
-  --teal-soft: #d6f3f2;
-  --plum: #7c3aed;
-  --plum-soft: #f1e9fe;
+  --red: #1b1a17;
+  --red-strong: #b83f32;
+  --red-soft: rgba(27, 26, 23, 0.08);
+  --gold: #9a6500;
+  --gold-strong: #7c4f00;
+  --gold-soft: rgba(154, 101, 0, 0.12);
+  --teal: #2f7659;
+  --teal-strong: #235c45;
+  --teal-soft: rgba(47, 118, 89, 0.12);
+  --plum: #2f5f8f;
+  --plum-soft: rgba(47, 95, 143, 0.12);
 
-  --on-red: #ffffff;
-  --on-gold: #1c1b2e;
-  --on-teal: #ffffff;
+  --on-red: #fffefa;
+  --on-gold: #1b1a17;
+  --on-teal: #fffefa;
 
-  --success: #0ea5a4;
-  --warning: #b45309;
-  --danger: #dc2626;
+  --success: #2f7659;
+  --warning: #9a6500;
+  --danger: #b83f32;
 
-  --r-sm: 10px;
-  --r: 16px;
-  --r-lg: 22px;
-  --r-xl: 30px;
+  --r-sm: 4px;
+  --r: 6px;
+  --r-lg: 8px;
+  --r-xl: 12px;
   --r-pill: 999px;
 
-  --shadow-sm: 0 2px 8px -3px rgba(33, 26, 23, 0.14);
-  --shadow: 0 14px 30px -18px rgba(33, 26, 23, 0.28);
-  --shadow-lg: 0 26px 50px -24px rgba(33, 26, 23, 0.32);
-  --ring: 0 0 0 4px rgba(79, 70, 229, 0.2);
+  --shadow-sm: 2px 2px 0 rgba(31, 29, 25, 0.1);
+  --shadow: 4px 4px 0 rgba(31, 29, 25, 0.16);
+  --shadow-lg: 6px 6px 0 rgba(31, 29, 25, 0.2);
+  --ring: rgba(184, 63, 50, 0.2);
 
   --gap-block: 56px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -99,6 +99,9 @@
   --ui-radius-md: var(--r);
   --ui-radius-lg: var(--r-lg);
   --ui-radius-xl: var(--r-xl);
+  --ui-shadow-1: var(--shadow-sm);
+  --ui-shadow-2: var(--shadow);
+  --ui-shadow-3: var(--shadow-lg);
   --ui-shadow-soft: var(--shadow);
   --ui-shadow-card: var(--shadow-lg);
 
@@ -116,36 +119,40 @@
 
 /* ---------- Tokens: 暗色（跟随全局 .dark） ---------- */
 .dark .vault-scope {
-  --bg: #15151f;
-  --bg-warm: #1c1c28;
-  --surface: #1f1f2c;
-  --surface-2: #292838;
-  --ink: #ececf6;
-  --ink-2: #b6b5cf;
-  --ink-3: #85849e;
-  --border: #333247;
-  --border-strong: #45445c;
+  --bg: #11100e;
+  --bg-warm: #191816;
+  --surface: #191816;
+  --surface-2: #23211d;
+  --ink: #f3efe6;
+  --ink-2: #d7d0c2;
+  --ink-3: #9d9485;
+  --border: rgba(243, 239, 230, 0.14);
+  --border-strong: rgba(243, 239, 230, 0.44);
 
-  --red: #6366f1;
-  --red-strong: #818cf8;
-  --red-soft: #272449;
-  --gold: #f6b73c;
-  --gold-strong: #f8c869;
-  --gold-soft: #38320f;
-  --teal: #2dd4bf;
-  --teal-strong: #5ee0d0;
-  --teal-soft: #123230;
-  --plum: #a78bfa;
-  --plum-soft: #2c2447;
+  --red: #b83f32;
+  --red-strong: #ff735f;
+  --red-soft: rgba(255, 115, 95, 0.14);
+  --gold: #d9a84e;
+  --gold-strong: #edbd62;
+  --gold-soft: rgba(217, 168, 78, 0.14);
+  --teal: #68b58f;
+  --teal-strong: #82c7a4;
+  --teal-soft: rgba(104, 181, 143, 0.14);
+  --plum: #7aa7d7;
+  --plum-soft: rgba(122, 167, 215, 0.14);
 
-  --on-red: #ffffff;
-  --on-gold: #1c1b2e;
-  --on-teal: #08221f;
+  --on-red: #fffefa;
+  --on-gold: #171512;
+  --on-teal: #171512;
 
-  --shadow-sm: 0 2px 8px -3px rgba(0, 0, 0, 0.5);
-  --shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 28px 54px -22px rgba(0, 0, 0, 0.66);
-  --ring: 0 0 0 4px rgba(99, 102, 241, 0.32);
+  --success: #68b58f;
+  --warning: #d9a84e;
+  --danger: #ff735f;
+
+  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.36);
+  --shadow: 4px 4px 0 rgba(0, 0, 0, 0.46);
+  --shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.56);
+  --ring: rgba(255, 115, 95, 0.28);
 }
 
 /* ---------- Base（限定在作用域内） ---------- */
@@ -155,18 +162,27 @@
 .vault-scope h4 {
   font-family: var(--font-head);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
   margin: 0;
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   color: var(--ink);
 }
 .vault-scope p { margin: 0; }
 .vault-scope a { color: inherit; text-decoration: none; }
 .vault-scope img,
 .vault-scope svg { display: block; max-width: 100%; }
-.vault-scope button { font-family: inherit; cursor: pointer; }
+.vault-scope button,
+.vault-scope input,
+.vault-scope select,
+.vault-scope textarea {
+  font-family: var(--font-ui);
+}
+.vault-scope button { cursor: pointer; }
 .vault-scope ul { margin: 0; }
-.vault-scope :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.vault-scope :focus-visible {
+  outline: none;
+  box-shadow: 3px 3px 0 var(--ring);
+}
 .vault-scope ::selection { background: var(--gold-soft); color: var(--ink); }
 
 /* ---------- 响应式 / 无障碍 ---------- */
