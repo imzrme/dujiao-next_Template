@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -36,6 +37,30 @@
 
   --color-hairline: var(--ui-border);
   --color-hairline-strong: var(--ui-border-strong);
+
+  /*
+   * shadcn-vue 兼容 token —— 映射到本站 --ui-* 调色板(Apple 蓝 + 灰),
+   * 暗色随 .dark 自动翻转。仅供分销控制台的 components/ui/* 使用,
+   * 不改任何既有 storefront 变量。--color-primary 已在上方定义,此处不重复。
+   */
+  --color-background: var(--ui-bg-page);
+  --color-foreground: var(--ui-text-primary);
+  --color-card: var(--ui-bg-elevated);
+  --color-card-foreground: var(--ui-text-primary);
+  --color-popover: var(--ui-bg-elevated);
+  --color-popover-foreground: var(--ui-text-primary);
+  --color-primary-foreground: var(--ui-text-on-accent);
+  --color-secondary: var(--ui-bg-soft);
+  --color-secondary-foreground: var(--ui-text-primary);
+  --color-muted: var(--ui-bg-muted);
+  --color-muted-foreground: var(--ui-text-muted);
+  --color-accent: var(--ui-bg-soft);
+  --color-accent-foreground: var(--ui-text-primary);
+  --color-destructive: var(--ui-danger);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--ui-border);
+  --color-input: var(--ui-border);
+  --color-ring: var(--ui-accent);
 
   --radius-sm: var(--ui-radius-sm);
   --radius-md: var(--ui-radius-md);
@@ -183,6 +208,11 @@
   --ui-price-original: #9d9485;
 }
 
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
 html,
 body {
   background-color: var(--ui-bg-page);
@@ -196,6 +226,15 @@ html[data-telegram-mini-app="true"] body {
 }
 
 @layer base {
+  /*
+   * shadcn 标准全局边框复位:Tailwind v4 裸 `border` 默认色为 currentColor
+   * (亮色下≈纯黑),会让 shadcn 组件(Card/Input/Table 等)出现纯黑框。
+   * 复位为本站 hairline --ui-border(亮/暗自动翻转);显式 border-* 色仍覆盖它。
+   */
+  * {
+    border-color: var(--ui-border);
+  }
+
   h1 {
     font-family: var(--ui-font-body);
     line-height: var(--ui-leading-display);
