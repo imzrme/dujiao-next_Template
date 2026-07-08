@@ -8,9 +8,9 @@
     <h1 class="mb-3.5 break-words text-3xl font-extrabold">{{ pageTitle }}</h1>
 
     <div class="grid items-start gap-7 py-1.5 pb-9 lg:grid-cols-[248px_1fr]">
-      <!-- 筛选侧栏 -->
-      <aside class="sticky top-[88px] grid min-w-0 gap-5">
-        <!-- 搜索 -->
+      <!-- 筛选侧栏：桌面竖排 + 移动端横向 chips -->
+      <div class="grid min-w-0 gap-3 lg:sticky lg:top-[88px] lg:gap-5">
+        <!-- 搜索框 -->
         <div class="relative">
           <Search class="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-muted-foreground" />
           <input
@@ -22,49 +22,15 @@
           <button v-if="searchQuery" type="button" class="absolute right-2.5 top-1/2 grid h-6 w-6 -translate-y-1/2 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground" :aria-label="t('blog.searchClear')" @click="clearSearch"><X class="h-3.5 w-3.5" /></button>
         </div>
 
-        <div class="rounded-xl border bg-card p-4">
-          <div class="mb-3 flex items-center gap-2 px-1">
-            <span class="h-4 w-1 flex-none rounded-full bg-primary"></span>
-            <h4 class="text-sm font-bold">{{ t('products.categories') }}</h4>
-          </div>
-          <div class="grid gap-1">
-            <button type="button" class="w-full rounded-lg px-3 py-2.5 text-left text-sm font-semibold transition-colors" :class="selectedCategory === null ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'" @click="selectCategory(null)">
-              {{ t('products.allCategories') }}
-            </button>
-            <template v-for="grp in categoryGroups" :key="grp.id">
-              <div class="flex min-w-0 items-center gap-0.5">
-                <button type="button" class="flex w-full min-w-0 flex-1 items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm font-semibold transition-colors" :class="selectedCategory === grp.id ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'" @click="selectCategory(grp.id)">
-                  <img v-if="grp.icon" :src="getImageUrl(grp.icon)" :alt="catName(grp)" loading="lazy" class="h-5 w-5 flex-none rounded-md object-cover" />
-                  <span class="min-w-0 truncate">{{ catName(grp) }}</span>
-                </button>
-                <button
-                  v-if="grp.children.length"
-                  type="button"
-                  class="grid h-9 w-9 flex-none place-items-center rounded-lg transition-colors hover:bg-secondary hover:text-foreground"
-                  :class="expandedParentIds.includes(grp.id) ? 'text-primary' : 'text-muted-foreground'"
-                  :aria-expanded="expandedParentIds.includes(grp.id)"
-                  :aria-label="catName(grp)"
-                  @click="toggleParentCategory(grp.id)"
-                >
-                  <ChevronDown class="h-4 w-4 transition-transform" :class="{ 'rotate-180': expandedParentIds.includes(grp.id) }" />
-                </button>
-              </div>
-              <template v-if="grp.children.length && expandedParentIds.includes(grp.id)">
-                <button
-                  v-for="child in grp.children"
-                  :key="child.id"
-                  type="button"
-                  class="block w-full min-w-0 truncate rounded-lg py-2 pl-9 pr-3 text-left text-[13.5px] font-semibold transition-colors"
-                  :class="selectedCategory === child.id ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'"
-                  @click="selectCategory(child.id)"
-                >
-                  {{ catName(child) }}
-                </button>
-              </template>
-            </template>
-          </div>
-        </div>
-      </aside>
+        <!-- 分类：使用 VaultCategorySidebar，移动端自动变横向 chips -->
+        <VaultCategorySidebar
+          :category-groups="categoryGroups"
+          :selected-category="selectedCategory"
+          :expanded-parent-ids="expandedParentIds"
+          @select="selectCategory"
+          @toggle="toggleParentCategory"
+        />
+      </div>
 
       <!-- 商品区 -->
       <section>
@@ -117,14 +83,14 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { ChevronDown, ChevronLeft, ChevronRight, PackageOpen, Search, SearchX, X } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, PackageOpen, Search, SearchX, X } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { useProductList } from '../../composables/useProductList'
 import { usePageSeo } from '../../composables/usePageSeo'
 import { useLocalized } from '../../composables/useProduct'
-import { getImageUrl } from '../../utils/image'
 import type { PublicCategory } from '../../utils/category'
 import VaultProductCard from './components/VaultProductCard.vue'
+import VaultCategorySidebar from './components/VaultCategorySidebar.vue'
 import ProductQuickBuy from '../../components/ProductQuickBuy.vue'
 
 const { t } = useI18n()
